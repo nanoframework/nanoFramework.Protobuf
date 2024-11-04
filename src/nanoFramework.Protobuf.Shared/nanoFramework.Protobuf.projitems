@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>7b222d0a-24e4-4bcd-99f8-e3be72a2a9d4</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>LogiContro.Serialization</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\ProtoArrayElementAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dto\MemberMapping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IAmASerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\PropertyUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\FieldUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\ProtoIncludeUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\StreamUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\MemoryStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\ProtobufStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\ByteConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\NumericUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\StringUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\EndianBitConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\ProtoContractAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\ProtoIncludeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\ProtoMemberAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\ProtoUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Reader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\ByteUtility.cs" />
+  </ItemGroup>
+</Project>
