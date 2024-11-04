@@ -1,4 +1,18 @@
-# nanoFramework.Protobuf
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nanoframework_lib-nanoframework.WebServer&metric=alert_status)](https://sonarcloud.io/dashboard?id=nanoframework_lib-nanoframework.WebServer) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=nanoframework_lib-nanoframework.WebServer&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=nanoframework_lib-nanoframework.WebServer) [![NuGet](https://img.shields.io/nuget/dt/nanoFramework.WebServer.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.WebServer/) [![#yourfirstpr](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](https://github.com/nanoframework/Home/blob/main/CONTRIBUTING.md) [![Discord](https://img.shields.io/discord/478725473862549535.svg?logo=discord&logoColor=white&label=Discord&color=7289DA)](https://discord.gg/gCyBu8T)
+
+![nanoFramework logo](https://raw.githubusercontent.com/nanoframework/Home/main/resources/logo/nanoFramework-repo-logo.png)
+
+-----
+
+### Welcome to the .NET **nanoFramework** Protobuf repository
+
+## Build status[text](README.md)
+
+| Component | Build Status | NuGet Package |
+|:-|---|---|
+| nanoFramework.Protobuf | [![Build Status](https://dev.azure.com/nanoframework/nanoFramework.Protobuf/_apis/build/status/nanoFramework.Protobuf?repoName=nanoframework%2FnanoFramework.Protobuf&branchName=main)](https://dev.azure.com/nanoframework/nanoFramework.Protobuf/_build/latest?definitionId=65&repoName=nanoframework%2FnanoFramework.Protobuf&branchName=main) | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.Protobuf.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.Protobuf/) |
+
+## nanoFramework.Protobuf
 
 This library is usefull for projects looking to transfer data from or to embedded systems which are using [.NET nanoFramework](https://github.com/nanoframework/Home). It provides assemblies compiled with nanoFramework and netstandard 2.0 which makes it usable in both nanoFramework projects and about any other .Net flavor.
 
@@ -18,3 +32,26 @@ Similarly a number of current limitations of the nanoFramework API means there a
 With these limitations in mind. The library requires specific contracts which means existing dto's can probably not be reused as such. This is easily circumvented by creating wrapper classes though.
 
 The first five limitations mentioned are denoted in the code with a comment (look for //NanoTODO #).
+
+## Feedback and documentation
+
+For documentation, providing feedback, issues and finding out how to contribute please refer to the [Home repo](https://github.com/nanoframework/Home).
+
+Join our Discord community [here](https://discord.gg/gCyBu8T).
+
+## Credits
+
+The list of contributors to this project can be found at [CONTRIBUTORS](https://github.com/nanoframework/Home/blob/main/CONTRIBUTORS.md).
+
+## License
+
+The **nanoFramework** WebServer library is licensed under the [MIT license](LICENSE.md).
+
+## Code of Conduct
+
+This project has adopted the code of conduct defined by the Contributor Covenant to clarify expected behaviour in our community.
+For more information see the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/code-of-conduct).
+
+### .NET Foundation
+
+This project is supported by the [.NET Foundation](https://dotnetfoundation.org).
