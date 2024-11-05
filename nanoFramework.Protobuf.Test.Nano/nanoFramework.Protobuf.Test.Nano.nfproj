@@ -54,6 +54,9 @@
   <ItemGroup>
     <ProjectReference Include="..\nanoFramework.Protobuf.Nano\nanoFramework.Protobuf.Nano.nfproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.lock.json" />
+  </ItemGroup>
   <Import Project="..\nanoFramework.Protobuf.Test\nanoFramework.Protobuf.Test.projitems" Label="Shared" />
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
 </Project>

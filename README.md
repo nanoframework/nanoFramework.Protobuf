@@ -4,7 +4,7 @@
 
 -----
 
-### Welcome to the .NET **nanoFramework** Protobuf repository
+# Welcome to the .NET **nanoFramework** Protobuf repository
 
 ## Build status[text](README.md)
 

@@ -1,28 +1,10 @@
 # Copyright (c) .NET Foundation and Contributors
 # See LICENSE file in the project root for full license information.
 
-trigger:
-  branches:
-    include:
-      - main
-      - develop
-      - release-*
-  paths:
-    exclude:
-      - .github_changelog_generator
-      - .gitignore
-      - CHANGELOG.md
-      - CODE_OF_CONDUCT.md
-      - LICENSE.md
-      - README.md
-      - NuGet.Config
-      - assets/*
-      - config/*
-      - .github/*
-
-# PR always trigger build
-pr:
-  autoCancel: true
+# The Pipeline is going to be called by the GitHub action.
+# Manual trigger is always possible.
+trigger: none
+pr: none
 
 # add nf-tools repo to resources (for Azure Pipelines templates)
 resources:
@@ -32,66 +14,93 @@ resources:
       name: nanoframework/nf-tools
       endpoint: nanoframework
 
-pool:
-  vmImage: 'windows-latest'
+parameters:
+- name: appComponents
+  displayName: List of capabilities to run the tests on
+  type: object
+  default:
+    - none
 
-variables:
-  - group: sign-client-credentials
-  - name: DOTNET_NOLOGO
-    value: true  
-  - name: buildPlatform
-    value: 'Any CPU'  
-  - name: buildConfiguration
-    value: 'Release'
-  - name: solution
-    value: 'nanoFramework.Protobuf.sln'
-  - name: nugetPackageName
-    value: 'nanoFramework.Protobuf'
+stages:
+- stage: Build
+  displayName: 'Build'
+  jobs:
+  - job: Build
+    displayName: 'Build job'
+    pool:
+      # default is the following VM Image
+      vmImage: 'windows-latest'
 
-steps:
+    variables:
+      - group: sign-client-credentials
+      - name: DOTNET_NOLOGO
+        value: true  
+      - name: buildPlatform
+        value: 'Any CPU'  
+      - name: buildConfiguration
+        value: 'Release'
+      - name: solution
+        value: 'nanoFramework.Protobuf.sln'
+      - name: nugetPackageName
+        value: 'nanoFramework.Protobuf'
 
-  # step from template @ nf-tools repo
-  # all build, update and publish steps
-  - template: azure-pipelines-templates/class-lib-build-only.yml@templates
+    steps:
+
+      # step from template @ nf-tools repo
+      # all build, update and publish steps
+      - template: azure-pipelines-templates/class-lib-build-only.yml@templates
+        parameters:
+          sonarCloudProject: 'nanoframework_lib-nanoframework.Protobuf'
+      
+      # build the 2 libs step
+      - template: azure-pipelines-templates/class-lib-package.yml@templates  
+        parameters:
+          nugetPackageName: 'nanoFramework.Protobuf'
+
+      # publish the 2 libs
+      - template: azure-pipelines-templates/class-lib-publish.yml@templates
+
+      # create GitHub release build from main branch
+      - task: GithubRelease@1
+        condition: >-
+          and(
+            succeeded(),
+            eq(variables['System.PullRequest.PullRequestId'], ''),
+            startsWith(variables['Build.SourceBranch'], 'refs/heads/main'),
+            not(contains(variables['Build.SourceBranch'], 'preview')),
+            eq(variables['StartReleaseCandidate'], false)
+          )
+        displayName: Create/Update GitHub release
+        inputs:
+          action: edit
+          gitHubConnection: 'github.com_nano-$(System.TeamProject)'
+          tagSource: userSpecifiedTag
+          tag: v$(MY_NUGET_VERSION)
+          title: '$(nugetPackageName) Library v$(MY_NUGET_VERSION)'
+          releaseNotesSource: inline
+          releaseNotesInline: 'Check the [changelog]($(Build.Repository.Uri)/blob/$(Build.SourceBranchName)/CHANGELOG.md).<br><br><h4>Install from NuGet</h4><br>The following NuGet packages are available for download from this release:<br>:package: [nanoFramework.Protobuf](https://www.nuget.org/packages/$(nugetPackageName)/$(MY_NUGET_VERSION)) v$(MY_NUGET_VERSION).'
+          assets: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+          assetUploadMode: replace
+          isPreRelease: false
+          addChangeLog: false
+
+      # step from template @ nf-tools repo
+      # report error
+      - template: azure-pipelines-templates/discord-webhook-task.yml@templates  
+        parameters:
+          status: 'failure'
+          webhookUrl: '$(DiscordWebhook)'
+          message: ''
+
+      - task: PublishPipelineArtifact@1
+        displayName: Publish Pipeline Artifact copy
+        inputs:
+          path: '$(System.DefaultWorkingDirectory)'
+          artifactName: 'Artifacts'
+
+- ${{ each appComponents in parameters.appComponents }}:   
+  - template: azure-pipelines-templates/device-test.yml@templates
     parameters:
-      sonarCloudProject: 'nanoframework_lib-nanoframework.Protobuf'
-  
-  # build the 2 libs step
-  - template: azure-pipelines-templates/class-lib-package.yml@templates  
-    parameters:
-      nugetPackageName: 'nanoFramework.Protobuf'
-
-  # publish the 2 libs
-  - template: azure-pipelines-templates/class-lib-publish.yml@templates
-
-  # create GitHub release build from main branch
-  - task: GithubRelease@1
-    condition: >-
-      and(
-        succeeded(),
-        eq(variables['System.PullRequest.PullRequestId'], ''),
-        startsWith(variables['Build.SourceBranch'], 'refs/heads/main'),
-        not(contains(variables['Build.SourceBranch'], 'preview')),
-        eq(variables['StartReleaseCandidate'], false)
-      )
-    displayName: Create/Update GitHub release
-    inputs:
-      action: edit
-      gitHubConnection: 'github.com_nano-$(System.TeamProject)'
-      tagSource: userSpecifiedTag
-      tag: v$(MY_NUGET_VERSION)
-      title: '$(nugetPackageName) Library v$(MY_NUGET_VERSION)'
-      releaseNotesSource: inline
-      releaseNotesInline: 'Check the [changelog]($(Build.Repository.Uri)/blob/$(Build.SourceBranchName)/CHANGELOG.md).<br><br><h4>Install from NuGet</h4><br>The following NuGet packages are available for download from this release:<br>:package: [nanoFramework.Protobuf](https://www.nuget.org/packages/$(nugetPackageName)/$(MY_NUGET_VERSION)) v$(MY_NUGET_VERSION).'
-      assets: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-      assetUploadMode: replace
-      isPreRelease: false
-      addChangeLog: false
-
-  # step from template @ nf-tools repo
-  # report error
-  - template: azure-pipelines-templates/discord-webhook-task.yml@templates  
-    parameters:
-      status: 'failure'
-      webhookUrl: '$(DiscordWebhook)'
-      message: ''
+      appComponents: ${{ appComponents }}
+      unitTestRunsettings: 
+        - 'nanoFramework.Protobuf.Test.Nano/nano.runsettings,nanoFramework.Protobuf.Test.Nano/bin/Release/NFUnitTest.dll'
