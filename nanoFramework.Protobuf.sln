@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35424.110
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.Protobuf.nano", "nanoFramework.Protobuf\nanoFramework.Protobuf.nfproj", "{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}"
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.Protobuf", "nanoFramework.Protobuf\nanoFramework.Protobuf.nfproj", "{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nanoFramework", "nanoFramework", "{15AC7544-E115-4CD3-9858-DDDF2CCEC719}"
 EndProject
@@ -22,6 +22,13 @@ EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.Protobuf.Test.nano", "nanoFramework.Protobuf.Test.nano\nanoFramework.Protobuf.Test.nano.nfproj", "{53A38417-78B4-42B4-AD07-0F93A96EF7F7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nanoFramework.Protobuf.Test.NET", "nanoFramework.Protobuf.Test.NET\nanoFramework.Protobuf.Test.NET.csproj", "{7EE97B46-A053-451F-9D4B-F41D083F3B11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4EA079C3-FAB6-4CDF-9906-BA9C502570AB}"
+	ProjectSection(SolutionItems) = preProject
+		nanoFramework.Protobuf.nuspec = nanoFramework.Protobuf.nuspec
+		README.md = README.md
+		version.json = version.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +67,9 @@ Global
 		{E346D128-8E98-4BBE-8C41-3C8B81133146} = {9C63F875-87F1-4F78-8B16-728BF27BBDAB}
 		{53A38417-78B4-42B4-AD07-0F93A96EF7F7} = {9C63F875-87F1-4F78-8B16-728BF27BBDAB}
 		{7EE97B46-A053-451F-9D4B-F41D083F3B11} = {9C63F875-87F1-4F78-8B16-728BF27BBDAB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2105EDC-0BB8-4CF5-9C71-835283EE4572}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		nanoFramework.Protobuf.Shared\nanoFramework.Protobuf.projitems*{2b7e7ad4-3106-41b2-a078-26e60037ae86}*SharedItemsImports = 5
