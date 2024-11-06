@@ -33,7 +33,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="nanoFramework.Protobuf.Nano\bin\Release\nanoFramework.Protobuf.*" target="lib/netmf" />
+    <file src="nanoFramework.Protobuf\bin\Release\nanoFramework.Protobuf.*" target="lib/netmf" />
     <file src="nanoFramework.Protobuf.Net\bin\Release\nanoFramework.Protobuf.*" target="lib/netstandard[2.0]" />
     <file src="assets\readme.txt" target="" />
     <file src="README.md" target="docs\" />
