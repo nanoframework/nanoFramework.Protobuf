@@ -1,7 +1,9 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+using System;
 using System.Diagnostics;
+using System.Text;
 using nanoFramework.Protobuf.Test.Domain;
 
 namespace nanoFramework.Protobuf.Test
@@ -27,16 +29,21 @@ namespace nanoFramework.Protobuf.Test
 
         public static void BigStringTest()
         {
-            string str = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMN";
+            string stringChunk = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMN";
+            StringBuilder strBuilder = new(stringChunk);
 
-            for (int i = 0; i < 12; i++)
-                str += str;
+            for (int i = 0; i < 24; i++)
+            {
+                _ = strBuilder.Append(Guid.NewGuid().ToString());
+            }
+
+            string str = strBuilder.ToString();
 
             var obj = new SomeObject { StringProperty = str };
 
             var serializer = new Serializer(StreamType.ProtobufStream);
 
-            var result = serializer.Serialize(obj);
+            byte[] result = serializer.Serialize(obj);
 
             var deserialized = serializer.Deserialize(typeof(SomeObject), result) as SomeObject;
 
