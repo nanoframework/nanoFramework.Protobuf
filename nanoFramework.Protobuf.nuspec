@@ -21,7 +21,7 @@
 </description>
     <tags>proto protobuf net netmf nf nanoframework</tags>
     <dependencies>
-	  <group targetFramework="netmf">
+	  <group targetFramework="netnano">
         <dependency id="nanoFramework.CoreLibrary" version="1.15.5" />
         <dependency id="nanoFramework.System.Collections" version="1.5.45" />
         <dependency id="nanoFramework.System.IO.Streams" version="1.5.45" />
