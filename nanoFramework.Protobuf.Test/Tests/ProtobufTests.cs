@@ -29,27 +29,39 @@ namespace nanoFramework.Protobuf.Test
 
         public static void BigStringTest()
         {
-            string stringChunk = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMN";
-            StringBuilder strBuilder = new(stringChunk);
-
-            for (int i = 0; i < 24; i++)
+            //Purpose of this test is to serialize and deserialize a payload > 65,535 bytes since this is the
+            //limit of MemoryStream. An alternative ProtobufStream is provided for this need and is indicated
+            //through the Serializer constructed.
+            //We try/catch OutOfMemoryExceptions and swallow them since boards with too few memory will always
+            //fail this test which is to be expected and can be ignored.
+            try
             {
-                _ = strBuilder.Append(Guid.NewGuid().ToString());
+                string stringChunk = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMN";
+                StringBuilder strBuilder = new(stringChunk);
+
+                while (strBuilder.Length < ushort.MaxValue)
+                {
+                    _ = strBuilder.Append(Guid.NewGuid().ToString());
+                }
+
+                string str = strBuilder.ToString();
+
+                var obj = new SomeObject { StringProperty = str };
+
+                var serializer = new Serializer(StreamType.ProtobufStream);
+
+                byte[] result = serializer.Serialize(obj);
+
+                var deserialized = serializer.Deserialize(typeof(SomeObject), result) as SomeObject;
+
+                Debug.Assert(deserialized != null);
+
+                Debug.Assert(obj.StringProperty == deserialized.StringProperty);
             }
-
-            string str = strBuilder.ToString();
-
-            var obj = new SomeObject { StringProperty = str };
-
-            var serializer = new Serializer(StreamType.ProtobufStream);
-
-            byte[] result = serializer.Serialize(obj);
-
-            var deserialized = serializer.Deserialize(typeof(SomeObject), result) as SomeObject;
-
-            Debug.Assert(deserialized != null);
-
-            Debug.Assert(obj.StringProperty == deserialized.StringProperty);
+            catch (OutOfMemoryException e)
+            {
+                //swallow exception so the test doesn't fail when to be expected
+            }
         }
 
         public static void ValidateEndToEndObject(SomeObject obj)
