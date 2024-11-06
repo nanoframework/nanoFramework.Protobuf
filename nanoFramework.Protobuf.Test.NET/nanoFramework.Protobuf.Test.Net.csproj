@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\nanoFramework.Protobuf.Net\nanoFramework.Protobuf.Net.csproj" />
+    <ProjectReference Include="..\nanoFramework.Protobuf.Net\nanoFramework.Protobuf.NET.csproj" />
   </ItemGroup>
 
   <ItemGroup>

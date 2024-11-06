@@ -12,8 +12,8 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <FileAlignment>512</FileAlignment>
-    <RootNamespace>nanoFramework.Protobuf.Nano</RootNamespace>
-    <AssemblyName>nanoFramework.Protobuf.Nano</AssemblyName>
+    <RootNamespace>nanoFramework.Protobuf</RootNamespace>
+    <AssemblyName>nanoFramework.Protobuf</AssemblyName>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
   </PropertyGroup>
     <PropertyGroup>
