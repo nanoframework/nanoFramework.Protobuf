@@ -103,4 +103,4 @@ stages:
     parameters:
       appComponents: ${{ appComponents }}
       unitTestRunsettings: 
-        - 'nanoFramework.Protobuf.Test.Nano/nano.runsettings,nanoFramework.Protobuf.Test.Nano/bin/Release/NFUnitTest.dll'
+        - 'nanoFramework.Protobuf.Test.nano/nano.runsettings,nanoFramework.Protobuf.Test.nano/bin/Release/NFUnitTest.dll'
