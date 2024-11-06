@@ -1,11 +1,11 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-using nanoFramework.Protobuf.Dto;
-using nanoFramework.Protobuf.Utility;
 using System;
 using System.Collections;
 using System.Diagnostics;
+using nanoFramework.Protobuf.Dto;
+using nanoFramework.Protobuf.Utility;
 
 namespace nanoFramework.Protobuf
 {
@@ -38,7 +38,7 @@ namespace nanoFramework.Protobuf
 
         private static object DeserializeObject(IStream stream, Type targetType, int b)
         {
-            if(targetType == null)
+            if (targetType == null)
             {
                 //this happens if data in the stream contains a no longer mapped object
                 //hence advance the stream to the end of the object
@@ -95,7 +95,7 @@ namespace nanoFramework.Protobuf
                 }
             }
 
-            if(!processed)
+            if (!processed)
             {
                 _ = ReadFromStream(stream, null, null, null);
                 Debug.WriteLine($"The data for type {targetType.Name} contains ProtoMember id {protoMember} while the type does not have this ProtoMember?");
@@ -127,7 +127,7 @@ namespace nanoFramework.Protobuf
 
             if (targetType == typeof(short))
             {
-                if(obj is short || obj is byte) return (short)obj;
+                if (obj is short || obj is byte) return (short)obj;
                 return short.Parse(obj.ToString());
             }
 

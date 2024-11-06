@@ -16,7 +16,7 @@ namespace nanoFramework.Protobuf.Dto
         public MemberMapping(PropertyInfo property) => Property = property;
 
         private FieldInfo Field { get; set; }
-        private  PropertyInfo Property { get; set; }
+        private PropertyInfo Property { get; set; }
 
         public int ProtoMember { get; set; }
         public int ProtoInclude { get; internal set; }

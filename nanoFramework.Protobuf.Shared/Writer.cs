@@ -1,10 +1,10 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-using nanoFramework.Protobuf.Dto;
-using nanoFramework.Protobuf.Utility;
 using System;
 using System.Diagnostics;
+using nanoFramework.Protobuf.Dto;
+using nanoFramework.Protobuf.Utility;
 
 namespace nanoFramework.Protobuf
 {
@@ -72,19 +72,19 @@ namespace nanoFramework.Protobuf
 
         private static void EncodeToStream(object obj, Type memberType, Type type, IStream stream)
         {
-            if(obj == null)
+            if (obj == null)
             {
                 stream.WriteByte(0xC0);
                 return;
-            }    
+            }
 
-            if(type.IsArray)
+            if (type.IsArray)
             {
                 WriteArray(stream, (object[])obj, memberType);
                 return;
             }
 
-            if(obj is byte[] bytes)
+            if (obj is byte[] bytes)
             {
                 WriteBinary(stream, bytes);
                 return;
@@ -104,7 +104,7 @@ namespace nanoFramework.Protobuf
             {
                 case "System.String":
                     var str = obj.ToString();
-                    if(str != null)
+                    if (str != null)
                         StringUtility.WriteToStream(stream, str);
                     break;
                 case "System.Int16":

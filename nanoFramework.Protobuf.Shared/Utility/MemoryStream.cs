@@ -10,12 +10,12 @@ namespace nanoFramework.Protobuf.Utility
     {
         System.IO.MemoryStream _stream;
 
-        public MemoryStream() 
+        public MemoryStream()
         {
             _stream = new System.IO.MemoryStream();
         }
 
-        public MemoryStream(byte[] data) 
+        public MemoryStream(byte[] data)
         {
             _stream = new System.IO.MemoryStream(data);
         }

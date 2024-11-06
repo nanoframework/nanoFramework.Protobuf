@@ -16,12 +16,12 @@ namespace nanoFramework.Protobuf.Utility
         int _length = 0;
         int _position = 0;
 
-        public ProtobufStream() 
+        public ProtobufStream()
         {
             _data = new Hashtable();
         }
 
-        public ProtobufStream(byte[] data) 
+        public ProtobufStream(byte[] data)
         {
             _buffer = data;
         }
