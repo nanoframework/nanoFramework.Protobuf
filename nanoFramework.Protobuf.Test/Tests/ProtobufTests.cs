@@ -6,6 +6,10 @@ using System.Diagnostics;
 using System.Text;
 using nanoFramework.Protobuf.Test.Domain;
 
+#if NANOFRAMEWORK_1_0
+using nanoFramework.TestFramework;
+#endif
+
 namespace nanoFramework.Protobuf.Test
 {
     public static class ProtobufTests
@@ -58,9 +62,17 @@ namespace nanoFramework.Protobuf.Test
 
                 Debug.Assert(obj.StringProperty == deserialized.StringProperty);
             }
-            catch (OutOfMemoryException e)
+            catch (OutOfMemoryException)
             {
-                //swallow exception so the test doesn't fail when to be expected
+                // swallow exception so the test doesn't fail when to be expected
+                // won't happen on full .NET Framework, so no need to output anything
+
+#if NANOFRAMEWORK_1_0
+                OutputHelper.WriteLine($"*************************************");
+                OutputHelper.WriteLine($"*** OutOfMemoryException occurred ***");
+                OutputHelper.WriteLine($"*************************************");
+#endif
+
             }
         }
 
