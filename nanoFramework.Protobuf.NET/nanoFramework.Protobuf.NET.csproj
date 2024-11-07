@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>nanoFramework.Protobuf</AssemblyName>
+    <RootNamespace>nanoFramework.Protobuf</RootNamespace>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="'$(TF_BUILD)' == 'True' or '$(ContinuousIntegrationBuild)' == 'True'">true</RestoreLockedMode>
+  </PropertyGroup>
+
+  <Import Project="..\nanoFramework.Protobuf.Shared\nanoFramework.Protobuf.projitems" Label="Shared" />
+
+</Project>

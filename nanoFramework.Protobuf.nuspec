@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>nanoFramework.Protobuf</id>
+    <title>nanoFramework.Protobuf</title>
+    <version>$version$</version>
+    <authors>Klaus Vancamelbeke,nanoframework</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.md</license>
+    <releaseNotes>
+    </releaseNotes>
+    <readme>docs\README.md</readme>
+    <developmentDependency>false</developmentDependency>
+    <projectUrl>https://github.com/nanoframework/nanoFramework.Protobuf</projectUrl>
+    <icon>images\nf-logo.png</icon>
+    <repository type="git" url="https://github.com/nanoframework/nanoFramework.Protobuf" commit="$commit$" />
+    <copyright>Copyright (c) .NET Foundation and Contributors</copyright>
+    <description>This library allows to serialize and deserialize object graphs in nanoFramework and netstandard 2.0.
+	It hence allows to serialize data on nanoFramework and deserialize it in any other .Net platform or the other way around
+	while providing high performance and the smallest possible payload.
+</description>
+    <tags>proto protobuf net netmf nf nanoframework</tags>
+    <dependencies>
+	  <group targetFramework="netnano">
+        <dependency id="nanoFramework.CoreLibrary" version="1.15.5" />
+        <dependency id="nanoFramework.System.Collections" version="1.5.45" />
+        <dependency id="nanoFramework.System.IO.Streams" version="1.1.59" />
+        <dependency id="nanoFramework.System.Text" version="1.2.54" />
+	  </group>
+	  <group targetFramework="netstandard2.0">
+        <dependency id="NETStandard.Library" version="2.0.3" />
+	  </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="nanoFramework.Protobuf\bin\Release\nanoFramework.Protobuf.*" target="lib/netmf" />
+    <file src="nanoFramework.Protobuf.Net\bin\Release\nanoFramework.Protobuf.*" target="lib/netstandard[2.0]" />
+    <file src="assets\readme.txt" target="" />
+    <file src="README.md" target="docs\" />
+    <file src="assets\nf-logo.png" target="images" />
+    <file src="LICENSE.md" target="" />
+  </files>
+</package>

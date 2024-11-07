@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35424.110
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.Protobuf", "nanoFramework.Protobuf\nanoFramework.Protobuf.nfproj", "{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nanoFramework", "nanoFramework", "{15AC7544-E115-4CD3-9858-DDDF2CCEC719}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{645F5CB9-7D23-4B2D-986D-52EFBBFC2D1C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "nanoFramework.Protobuf", "nanoFramework.Protobuf.Shared\nanoFramework.Protobuf.shproj", "{7B222D0A-24E4-4BCD-99F8-E3BE72A2A9D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NET", ".NET", "{FC5B89DF-052F-4E17-9000-6275574F45E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nanoFramework.Protobuf.NET", "nanoFramework.Protobuf.Net\nanoFramework.Protobuf.NET.csproj", "{2B7E7AD4-3106-41B2-A078-26E60037AE86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9C63F875-87F1-4F78-8B16-728BF27BBDAB}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "nanoFramework.Protobuf.Test", "nanoFramework.Protobuf.Test\nanoFramework.Protobuf.Test.shproj", "{E346D128-8E98-4BBE-8C41-3C8B81133146}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.Protobuf.Test.nano", "nanoFramework.Protobuf.Test.nano\nanoFramework.Protobuf.Test.nano.nfproj", "{53A38417-78B4-42B4-AD07-0F93A96EF7F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nanoFramework.Protobuf.Test.NET", "nanoFramework.Protobuf.Test.NET\nanoFramework.Protobuf.Test.NET.csproj", "{7EE97B46-A053-451F-9D4B-F41D083F3B11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4EA079C3-FAB6-4CDF-9906-BA9C502570AB}"
+	ProjectSection(SolutionItems) = preProject
+		nanoFramework.Protobuf.nuspec = nanoFramework.Protobuf.nuspec
+		README.md = README.md
+		version.json = version.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2B7E7AD4-3106-41B2-A078-26E60037AE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B7E7AD4-3106-41B2-A078-26E60037AE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B7E7AD4-3106-41B2-A078-26E60037AE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B7E7AD4-3106-41B2-A078-26E60037AE86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A38417-78B4-42B4-AD07-0F93A96EF7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A38417-78B4-42B4-AD07-0F93A96EF7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A38417-78B4-42B4-AD07-0F93A96EF7F7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{53A38417-78B4-42B4-AD07-0F93A96EF7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A38417-78B4-42B4-AD07-0F93A96EF7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A38417-78B4-42B4-AD07-0F93A96EF7F7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7EE97B46-A053-451F-9D4B-F41D083F3B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE97B46-A053-451F-9D4B-F41D083F3B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE97B46-A053-451F-9D4B-F41D083F3B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE97B46-A053-451F-9D4B-F41D083F3B11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DBDACC1-16C4-4E8D-8E62-BEAD6A4C7ECB} = {15AC7544-E115-4CD3-9858-DDDF2CCEC719}
+		{7B222D0A-24E4-4BCD-99F8-E3BE72A2A9D4} = {645F5CB9-7D23-4B2D-986D-52EFBBFC2D1C}
+		{2B7E7AD4-3106-41B2-A078-26E60037AE86} = {FC5B89DF-052F-4E17-9000-6275574F45E8}
+		{E346D128-8E98-4BBE-8C41-3C8B81133146} = {9C63F875-87F1-4F78-8B16-728BF27BBDAB}
+		{53A38417-78B4-42B4-AD07-0F93A96EF7F7} = {9C63F875-87F1-4F78-8B16-728BF27BBDAB}
+		{7EE97B46-A053-451F-9D4B-F41D083F3B11} = {9C63F875-87F1-4F78-8B16-728BF27BBDAB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2105EDC-0BB8-4CF5-9C71-835283EE4572}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		nanoFramework.Protobuf.Shared\nanoFramework.Protobuf.projitems*{2b7e7ad4-3106-41b2-a078-26e60037ae86}*SharedItemsImports = 5
+		nanoFramework.Protobuf.Shared\nanoFramework.Protobuf.projitems*{7b222d0a-24e4-4bcd-99f8-e3be72a2a9d4}*SharedItemsImports = 13
+		nanoFramework.Protobuf.Test\nanoFramework.Protobuf.Test.projitems*{7ee97b46-a053-451f-9d4b-f41d083f3b11}*SharedItemsImports = 5
+		nanoFramework.Protobuf.Test\nanoFramework.Protobuf.Test.projitems*{e346d128-8e98-4bbe-8c41-3c8b81133146}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
