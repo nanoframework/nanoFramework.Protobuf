@@ -16,7 +16,7 @@
     <repository type="git" url="https://github.com/nanoframework/nanoFramework.Protobuf" commit="$commit$" />
     <copyright>Copyright (c) .NET Foundation and Contributors</copyright>
     <description>This library allows to serialize and deserialize object graphs in nanoFramework and netstandard 2.0.
-It hence allows to serialize data on nanoFramework and deserialize it in any other .Net platform or the other way around while providing high performance and the smallest possible payload.
+It hence allows to serialize data on .NET nanoFramework and deserialize it in any other .NET platform (or the other way around) while providing high performance and the smallest possible payload.
 </description>
     <tags>proto protobuf net netmf nf nanoframework</tags>
     <dependencies>
