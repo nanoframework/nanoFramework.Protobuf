@@ -30,3 +30,4 @@ namespace nanoFramework.Protobuf.Test
 
     }
 }
+
