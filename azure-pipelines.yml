@@ -46,24 +46,16 @@ stages:
 
     steps:
 
-      # step from template @ nf-tools repo
-      # all build, update and publish steps
-      - template: azure-pipelines-templates/class-lib-build-only.yml@templates
+      # full build, test, pack and publish
+      - template: azure-pipelines-templates/class-lib-build.yml@templates
         parameters:
           sonarCloudProject: 'nanoframework_nanoFramework.Protobuf'
-      
-      # build the 2 libs step
-      - template: azure-pipelines-templates/class-lib-package.yml@templates  
-        parameters:
-          nugetPackageName: 'nanoFramework.Protobuf'
-
-      # publish the 2 libs
-      - template: azure-pipelines-templates/class-lib-publish.yml@templates
+          runUnitTests: true
+          unitTestRunsettings: '$(System.DefaultWorkingDirectory)\.runsettings'
 
       # create GitHub release build from main branch
       - template: azure-pipelines-templates/create-github-release.yml@templates
 
-      # step from template @ nf-tools repo
       # report error
       - template: azure-pipelines-templates/discord-webhook-task.yml@templates  
         parameters:
