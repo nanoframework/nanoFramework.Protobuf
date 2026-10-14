@@ -4,10 +4,25 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>nanoFramework.Protobuf</AssemblyName>
     <RootNamespace>nanoFramework.Protobuf</RootNamespace>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Deterministic>true</Deterministic>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true'">True</ContinuousIntegrationBuild>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <RestoreLockedMode Condition="'$(TF_BUILD)' == 'True' or '$(ContinuousIntegrationBuild)' == 'True'">true</RestoreLockedMode>
   </PropertyGroup>
 
   <Import Project="..\nanoFramework.Protobuf.Shared\nanoFramework.Protobuf.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Tasks.Git" Version="[10.0.402]" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.SourceLink.Common" Version="[10.0.402]" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="[10.0.402]" PrivateAssets="all" />
+  </ItemGroup>
 
 </Project>
