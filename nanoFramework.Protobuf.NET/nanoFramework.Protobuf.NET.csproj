@@ -19,10 +19,4 @@
 
   <Import Project="..\nanoFramework.Protobuf.Shared\nanoFramework.Protobuf.projitems" Label="Shared" />
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Build.Tasks.Git" Version="[10.0.402]" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.SourceLink.Common" Version="[10.0.402]" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="[10.0.402]" PrivateAssets="all" />
-  </ItemGroup>
-
 </Project>
